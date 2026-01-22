@@ -2,6 +2,7 @@
   imports = [
     ./website.nix
     ./hedgedoc.nix
+    ./mail.nix
   ];
 
   networking.interfaces.ens3 = {
