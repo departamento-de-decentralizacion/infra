@@ -4,6 +4,7 @@
   meta.domain = "ddd";
 
   inventory.machines.web = { };
+  inventory.machines.uno.tags = [ "workstation" ];
 
   inventory.instances = {
 
@@ -25,7 +26,30 @@
         prompt = false;
       };
     };
+
+    # Workstations (laptops)
+    kde.roles.default.tags = [ "workstation" ];
+
+    users-hacker = {
+      module.name = "users";
+      roles.default.tags.workstation = { };
+      roles.default.settings = {
+        user = "hacker";
+        prompt = true;
+      };
+    };
+
+    wifi = {
+      roles.default = {
+        tags = [ "workstation" ];
+        settings.networks.casa_ciencia = { };
+      };
+    };
   };
+
+  secrets.age.plugins = [
+    "github:pinpox/age-plugin-picohsm#default"
+  ];
 
   machines = {
     web =
@@ -42,7 +66,6 @@
           # pinpox
           "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCdOfrnazSXp7ZmHcePXSd4leP3Qafr4fmDr3w+AxwRChSn1zzLPjV8CvD/PdMU7jQA0HS/1ItREurmZCKS/ZnQ= ssh-key"
         ];
-
 
       };
   };
