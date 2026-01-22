@@ -1991,7 +1991,7 @@
           {
             "type": "mem",
             "base": 0,
-            "range": 7999356928,
+            "range": 7999365120,
             "enabled": true,
             "access": "read_write",
             "prefetch": "unknown"
@@ -2110,7 +2110,7 @@
         },
         "sysfs_id": "/devices/pci0000:00/0000:00:1f.4/i2c-0/0-0015/input/input7",
         "unix_device_names": [
-          "/dev/input/event5",
+          "/dev/input/event4",
           "/dev/input/ + handler"
         ]
       }
@@ -2179,7 +2179,7 @@
           },
           {
             "type": "irq",
-            "base": 169,
+            "base": 168,
             "triggered": 0,
             "enabled": true
           },
@@ -2284,7 +2284,7 @@
           "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 169,
+          "irq": 168,
           "prog_if": 0
         },
         "driver": "iwlwifi",
@@ -2358,7 +2358,7 @@
           },
           {
             "type": "irq",
-            "base": 168,
+            "base": 169,
             "triggered": 0,
             "enabled": true
           },
@@ -2380,7 +2380,7 @@
           "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 168,
+          "irq": 169,
           "prog_if": 0
         },
         "driver": "e1000e",
@@ -2493,7 +2493,7 @@
     "network_interface": [
       {
         "index": 52,
-        "attached_to": 32,
+        "attached_to": 19,
         "class_list": [
           "network_interface"
         ],
@@ -2503,34 +2503,34 @@
           "value": 263
         },
         "sub_class": {
-          "hex": "0001",
-          "name": "Ethernet",
-          "value": 1
+          "hex": "000a",
+          "name": "WLAN",
+          "value": 10
         },
-        "model": "Ethernet network interface",
-        "sysfs_id": "/class/net/enp0s31f6",
-        "sysfs_device_link": "/devices/pci0000:00/0000:00:1f.6",
-        "unix_device_name": "enp0s31f6",
+        "model": "WLAN network interface",
+        "sysfs_id": "/class/net/wlan0",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:14.3",
+        "unix_device_name": "wlan0",
         "unix_device_names": [
-          "enp0s31f6"
+          "wlan0"
         ],
         "resources": [
           {
             "type": "hwaddr",
-            "address": 57
+            "address": 100
           },
           {
             "type": "phwaddr",
-            "address": 57
+            "address": 100
           }
         ],
-        "driver": "e1000e",
-        "driver_module": "e1000e",
+        "driver": "iwlwifi",
+        "driver_module": "iwlwifi",
         "drivers": [
-          "e1000e"
+          "iwlwifi"
         ],
         "driver_modules": [
-          "e1000e"
+          "iwlwifi"
         ]
       },
       {
@@ -2600,7 +2600,7 @@
       },
       {
         "index": 55,
-        "attached_to": 19,
+        "attached_to": 32,
         "class_list": [
           "network_interface"
         ],
@@ -2610,34 +2610,34 @@
           "value": 263
         },
         "sub_class": {
-          "hex": "000a",
-          "name": "WLAN",
-          "value": 10
+          "hex": "0001",
+          "name": "Ethernet",
+          "value": 1
         },
-        "model": "WLAN network interface",
-        "sysfs_id": "/class/net/wlan0",
-        "sysfs_device_link": "/devices/pci0000:00/0000:00:14.3",
-        "unix_device_name": "wlan0",
+        "model": "Ethernet network interface",
+        "sysfs_id": "/class/net/enp0s31f6",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:1f.6",
+        "unix_device_name": "enp0s31f6",
         "unix_device_names": [
-          "wlan0"
+          "enp0s31f6"
         ],
         "resources": [
           {
             "type": "hwaddr",
-            "address": 100
+            "address": 57
           },
           {
             "type": "phwaddr",
-            "address": 100
+            "address": 57
           }
         ],
-        "driver": "iwlwifi",
-        "driver_module": "iwlwifi",
+        "driver": "e1000e",
+        "driver_module": "e1000e",
         "drivers": [
-          "iwlwifi"
+          "e1000e"
         ],
         "driver_modules": [
-          "iwlwifi"
+          "e1000e"
         ]
       }
     ],

@@ -11,6 +11,16 @@
     tor.roles.server.tags.nixos = { };
     yggdrasil.roles.default.tags.all = { };
     sshd.roles.server.tags.all = { };
+    sshd.roles.server.extraModules = [
+      {
+
+        services.openssh.enable = true;
+        users.users.root.openssh.authorizedKeys.keys = [
+          # pinpox
+          "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCdOfrnazSXp7ZmHcePXSd4leP3Qafr4fmDr3w+AxwRChSn1zzLPjV8CvD/PdMU7jQA0HS/1ItREurmZCKS/ZnQ= ssh-key"
+        ];
+      }
+    ];
 
     internet = {
       roles.default.machines.web = {
@@ -29,6 +39,7 @@
 
     # Workstations (laptops)
     kde.roles.default.tags = [ "workstation" ];
+    kde.roles.default.extraModules = [ ./modules/workstation.nix ];
 
     users-hacker = {
       module.name = "users";
@@ -58,14 +69,6 @@
         ...
       }:
       {
-
-        services.openssh.enable = true;
-
-        users.users.root.openssh.authorizedKeys.keys = [
-
-          # pinpox
-          "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCdOfrnazSXp7ZmHcePXSd4leP3Qafr4fmDr3w+AxwRChSn1zzLPjV8CvD/PdMU7jQA0HS/1ItREurmZCKS/ZnQ= ssh-key"
-        ];
 
       };
   };
