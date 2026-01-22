@@ -1,5 +1,8 @@
 {
-  imports = [ ./website.nix ];
+  imports = [
+    ./website.nix
+    ./hedgedoc.nix
+  ];
 
   networking.interfaces.ens3 = {
     ipv6.addresses = [

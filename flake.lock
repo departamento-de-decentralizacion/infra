@@ -54,11 +54,11 @@
     "dedede-web": {
       "flake": false,
       "locked": {
-        "lastModified": 1769012280,
-        "narHash": "sha256-kOVoG57EncBrhBHKLAQKCJ3TupEz3Ta1Emq/IfGqB7U=",
+        "lastModified": 1769040099,
+        "narHash": "sha256-4v2PwNEOU/02o1Q7RCceyn5jIoBWpRf5O/AOL9u4Mjk=",
         "owner": "departamento-de-decentralizacion",
         "repo": "web",
-        "rev": "9778c3c2b33c5cee2e6279e16e7590f691298474",
+        "rev": "66e261ddad500a5c30304a6e93ae1245200adefd",
         "type": "github"
       },
       "original": {

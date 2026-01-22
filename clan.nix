@@ -11,11 +11,11 @@
     yggdrasil.roles.default.tags.all = { };
     sshd.roles.server.tags.all = { };
 
-    # internet = {
-    #   roles.default.machines.web = {
-    #     settings.host = "5.161.64.210";
-    #   };
-    # };
+    internet = {
+      roles.default.machines.web = {
+        settings.host = "5.161.64.210";
+      };
+    };
 
     users-root = {
       module.name = "users";
