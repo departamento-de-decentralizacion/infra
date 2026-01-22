@@ -13,4 +13,6 @@
     ];
   };
 
+  clan.core.sops.defaultGroups = [ "admin" ];
+
 }
