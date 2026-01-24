@@ -1,5 +1,19 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
+  clan.core.vars.generators."hedgedoc-oidc" = {
+    files.client_secret.owner = "authelia-main";
+    files.client_secret_env.owner = "hedgedoc";
+    runtimeInputs = with pkgs; [
+      coreutils
+      openssl
+    ];
+    script = ''
+      mkdir -p $out
+      openssl rand -hex 32 > $out/client_secret
+      echo "CMD_OAUTH2_CLIENT_SECRET=$(cat $out/client_secret)" > $out/client_secret_env
+    '';
+  };
+
   services.hedgedoc = {
     enable = true;
     environmentFile = config.clan.core.vars.generators."hedgedoc-oidc".files.client_secret_env.path;
