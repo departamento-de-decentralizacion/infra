@@ -17,6 +17,8 @@ in
   clan.core.vars.generators."authelia-user-pinpox" = mkUserPasswordGenerator "pinpox";
   clan.core.vars.generators."authelia-user-lassulus" = mkUserPasswordGenerator "lassulus";
   clan.core.vars.generators."authelia-user-k4os" = mkUserPasswordGenerator "k4os";
+  clan.core.vars.generators."authelia-user-freerk" = mkUserPasswordGenerator "freerk";
+  clan.core.vars.generators."authelia-user-cheesus" = mkUserPasswordGenerator "cheesus";
 
   # OIDC client secret for HedgeDoc
   clan.core.vars.generators."hedgedoc-oidc" = {
@@ -55,6 +57,18 @@ in
           email = "k4os@dedede.org";
           groups = [ "users" ];
           passwordFile = config.clan.core.vars.generators."authelia-user-k4os".files.password-hash.path;
+        };
+        freerk = {
+          displayname = "freerk";
+          email = "freerk@dedede.org";
+          groups = [ "users" ];
+          passwordFile = config.clan.core.vars.generators."authelia-user-freerk".files.password-hash.path;
+        };
+        cheesus = {
+          displayname = "cheesus";
+          email = "cheesus@dedede.org";
+          groups = [ "users" ];
+          passwordFile = config.clan.core.vars.generators."authelia-user-cheesus".files.password-hash.path;
         };
       };
     };
