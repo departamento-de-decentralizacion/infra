@@ -63,6 +63,31 @@ in
       description = "Custom authorization policies for OIDC clients.";
     };
 
+    smtp = {
+      enable = lib.mkEnableOption "SMTP notifier for Authelia";
+      host = lib.mkOption {
+        type = lib.types.str;
+        description = "SMTP server hostname";
+      };
+      port = lib.mkOption {
+        type = lib.types.port;
+        default = 465;
+        description = "SMTP server port";
+      };
+      username = lib.mkOption {
+        type = lib.types.str;
+        description = "SMTP username";
+      };
+      sender = lib.mkOption {
+        type = lib.types.str;
+        description = "Sender email address";
+      };
+      passwordFile = lib.mkOption {
+        type = lib.types.path;
+        description = "Path to file containing SMTP password";
+      };
+    };
+
   };
 
   config = mkIf cfg.enable (
@@ -111,6 +136,10 @@ in
         } // lib.optionalAttrs (cfg.oidcClients != []) {
           oidcHmacSecretFile = config.clan.core.vars.generators.authelia.files.oidc-hmac-secret.path;
           oidcIssuerPrivateKeyFile = config.clan.core.vars.generators.authelia.files.oidc-jwks-key.path;
+        };
+
+        environmentVariables = lib.mkIf cfg.smtp.enable {
+          AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE = cfg.smtp.passwordFile;
         };
 
         settingsFiles = lib.mkIf (cfg.oidcClients != []) [
@@ -167,7 +196,13 @@ in
 
           storage.local.path = "/var/lib/authelia-main/db.sqlite3";
 
-          notifier = {
+          notifier = if cfg.smtp.enable then {
+            smtp = {
+              address = "smtps://${cfg.smtp.host}:${toString cfg.smtp.port}";
+              username = cfg.smtp.username;
+              sender = cfg.smtp.sender;
+            };
+          } else {
             filesystem = {
               filename = "/var/lib/authelia-main/notifications.txt";
             };

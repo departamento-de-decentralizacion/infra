@@ -49,12 +49,33 @@ in
 
   clan.core.vars.generators = lib.mapAttrs' (
     username: _: lib.nameValuePair "authelia-user-${username}" (mkUserPasswordGenerator username)
-  ) users;
+  ) users // {
+    authelia-smtp = {
+      files.password.owner = "authelia-main";
+      prompts.password = {
+        type = "hidden";
+        description = "SMTP password for Authelia notifications (mail.privateemail.com)";
+      };
+      script = ''
+        mkdir -p $out
+        cp $prompts/password $out/password
+      '';
+    };
+  };
 
   dedede.services.authelia = {
     enable = true;
     host = "auth.dedede.org";
     cookieDomain = "dedede.org";
+
+    smtp = {
+      enable = true;
+      host = "mail.privateemail.com";
+      port = 465;
+      username = "authelia@dedede.org";
+      sender = "Authelia <authelia@dedede.org>";
+      passwordFile = config.clan.core.vars.generators.authelia-smtp.files.password.path;
+    };
 
     declarativeUsers = {
       enable = true;
