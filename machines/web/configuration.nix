@@ -3,6 +3,8 @@
     ./website.nix
     ./hedgedoc.nix
     ./mail.nix
+    ./copyparty.nix
+    ./authelia.nix
   ];
 
   networking.interfaces.ens3 = {
