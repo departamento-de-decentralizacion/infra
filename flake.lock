@@ -108,6 +108,18 @@
         "type": "github"
       }
     },
+    "lassulus-keys": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-rAtNCvT/sg8XhkyuLoIIruAuw3Rvccqnqne6LStoXTk=",
+        "type": "file",
+        "url": "https://github.com/lassulus.keys"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/lassulus.keys"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -155,14 +167,28 @@
         "url": "https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz"
       }
     },
+    "pinpox-keys": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-1qgMfhenuG7lbVWvSV3vdv3iRnELzNYzej6lCI2XStg=",
+        "type": "file",
+        "url": "https://github.com/pinpox.keys"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/pinpox.keys"
+      }
+    },
     "root": {
       "inputs": {
         "clan-core": "clan-core",
         "dedede-web": "dedede-web",
+        "lassulus-keys": "lassulus-keys",
         "nixpkgs": [
           "clan-core",
           "nixpkgs"
-        ]
+        ],
+        "pinpox-keys": "pinpox-keys"
       }
     },
     "sops-nix": {

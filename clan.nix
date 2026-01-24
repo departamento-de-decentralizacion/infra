@@ -1,4 +1,8 @@
 {
+  self,
+  ...
+}:
+{
   # Ensure this is unique among all clans you want to use.
   meta.name = "departamento-de-decentralizacion";
   meta.domain = "ddd";
@@ -15,9 +19,9 @@
       {
 
         services.openssh.enable = true;
-        users.users.root.openssh.authorizedKeys.keys = [
-          # pinpox
-          "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCdOfrnazSXp7ZmHcePXSd4leP3Qafr4fmDr3w+AxwRChSn1zzLPjV8CvD/PdMU7jQA0HS/1ItREurmZCKS/ZnQ= ssh-key"
+        users.users.root.openssh.authorizedKeys.keyFiles = with self.inputs; [
+          pinpox-keys
+          lassulus-keys
         ];
       }
     ];
