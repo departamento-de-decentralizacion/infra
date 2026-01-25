@@ -71,7 +71,7 @@ in
       };
       port = lib.mkOption {
         type = lib.types.port;
-        default = 465;
+        default = 587;
         description = "SMTP server port";
       };
       username = lib.mkOption {
@@ -198,7 +198,7 @@ in
 
           notifier = if cfg.smtp.enable then {
             smtp = {
-              address = "smtps://${cfg.smtp.host}:${toString cfg.smtp.port}";
+              address = "smtp://${cfg.smtp.host}:${toString cfg.smtp.port}";
               username = cfg.smtp.username;
               sender = cfg.smtp.sender;
             };

@@ -71,8 +71,8 @@ in
     smtp = {
       enable = true;
       host = "mail.privateemail.com";
-      port = 465;
-      username = "authelia@dedede.org";
+      port = 587;
+      username = "mail@dedede.org";
       sender = "Authelia <authelia@dedede.org>";
       passwordFile = config.clan.core.vars.generators.authelia-smtp.files.password.path;
     };
