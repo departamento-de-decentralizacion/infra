@@ -66,6 +66,14 @@
     };
   };
 
+  vars.settings.secretStore = "age";
+  vars.settings.recipients.default = [
+    # pinpox
+    "age1picohsm1qjpqjd9pnlh8zem6wwz62ml9z995fsdz9e23dumamjj0nl4cq0m5dx5v5mm5njelm3hmv4w3mfs5mzvks3xtu6k723jr0am49hrk9mduxvxpps"
+    # lassulus
+    "age1fa8p9xf28xx78yk2zqlkxgzy8kraraps9w9ky73s59dfedqmcshq8rg6le"
+  ];
+
   secrets.age.plugins = [
     "github:pinpox/age-plugin-picohsm#default"
   ];
