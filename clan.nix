@@ -23,6 +23,10 @@
           pinpox-keys
           lassulus-keys
         ];
+
+        users.users.root.openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILJlhT8EjImUosmzlN8SL9STN351kICSZ3YVOY6SiYtc freerk"
+        ];
       }
     ];
 
